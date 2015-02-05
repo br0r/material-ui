@@ -2,7 +2,7 @@
   "name": "material-ui",
   "author": "Call-em-all Engineering Team",
   "version": "0.6.1",
-  "description": "Material Design UI components built with React",
+  "description": "Material Design UI components built with React - Implementation for Bilprospekt",
   "main": "./src/index",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,13 +16,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/callemall/material-ui.git"
+    "url": "https://github.com/br0r/material-ui.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/callemall/material-ui/issues"
+    "url": "https://github.com/br0r/material-ui/issues"
   },
-  "homepage": "http://material-ui.com/",
   "browserify": {
     "transform": [
       [

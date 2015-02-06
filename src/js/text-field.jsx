@@ -64,6 +64,7 @@ var TextField = React.createClass({
       onChange,
       onFocus,
       type,
+      style,
       ...other
     } = this.props;
 
@@ -108,7 +109,6 @@ var TextField = React.createClass({
     if (!this.props.hasOwnProperty('valueLink')) {
       inputProps.onChange = this._handleInputChange;
     }
-
     inputElement = this.props.multiLine ? (
       <EnhancedTextarea
         {...other}
@@ -123,7 +123,7 @@ var TextField = React.createClass({
     );
 
     return (
-      <div className={classes}>
+      <div className={classes} style={style}>
 
         {floatingLabelTextElement}
         {hintTextElement}

@@ -50,7 +50,7 @@ var SelectMenu = React.createClass({
     if(this.props.spawnType === 'normal') {
         menuStyle = {
             'position' : 'absolute',
-            'top' : 57
+            'top' : 56 //FIXME, does this always work?
         };
     }
 

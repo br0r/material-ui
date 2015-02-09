@@ -27,6 +27,7 @@ var Paper = React.createClass({
       innerClassName,
       rounded,
       zDepth,
+      style,
       ...other } = this.props,
       classes = this.getClasses(
         'mui-paper ' +
@@ -39,8 +40,12 @@ var Paper = React.createClass({
         'mui-paper-container ' +
         'mui-z-depth-bottom';
 
+    style = _.extend({
+        zIndex : Math.max(1, this.props.zDepth + 1)
+    }, style);
+
     return (
-      <div {...other} className={classes}>
+      <div {...other} className={classes} style={style}>
         <div ref="innerContainer" className={insideClasses}>
           {this.props.children}
         </div>

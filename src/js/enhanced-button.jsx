@@ -18,9 +18,14 @@ var EnhancedButton = React.createClass({
     linkButton: React.PropTypes.bool,
     onBlur: React.PropTypes.func,
     onFocus: React.PropTypes.func,
-    onTouchTap: React.PropTypes.func
+    onTouchTap: React.PropTypes.func,
+    selected : React.PropTypes.bool
   },
-
+  getDefaultProps : function() {
+    return {
+        selected : false
+    };
+  },
   windowListeners: {
     'keydown': '_handleWindowKeydown',
     'keyup': '_handleWindowKeyup'
@@ -45,7 +50,7 @@ var EnhancedButton = React.createClass({
       ...other } = this.props;
     var classes = this.getClasses('mui-enhanced-button', {
       'mui-is-disabled': disabled,
-      'mui-is-keyboard-focused': this.state.isKeyboardFocused,
+      'mui-is-keyboard-focused': this.state.isKeyboardFocused || this.props.selected,
       'mui-is-link-button': linkButton
     });
     var touchRipple = (

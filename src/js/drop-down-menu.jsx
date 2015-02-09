@@ -13,12 +13,14 @@ var DropDownMenu = React.createClass({
   propTypes: {
     autoWidth: React.PropTypes.bool,
     onChange: React.PropTypes.func,
-    menuItems: React.PropTypes.array.isRequired
+    menuItems: React.PropTypes.array.isRequired,
+    spawnType : React.PropTypes.oneOf(['normal', 'mobile'])
   },
 
   getDefaultProps: function() {
     return {
-      autoWidth: true
+      autoWidth: true,
+      spawnType : 'normal'
     };
   },
 
@@ -48,15 +50,23 @@ var DropDownMenu = React.createClass({
       'mui-open': this.state.open
     });
 
+    var menuStyle = null;
+    if(this.props.spawnType === 'normal') {
+        menuStyle = {
+            'position' : 'absolute',
+            'top' : 57
+        };
+    }
+
     return (
       <div className={classes}>
         <div className="mui-menu-control" onClick={this._onControlClick}>
-          <Paper className="mui-menu-control-bg" zDepth={0} />
+          <Paper className="mui-menu-control-bg" zDepth={0} rounded={false} />
           <div className="mui-menu-label">
             {this.props.menuItems[this.state.selectedIndex].text}
           </div>
           <DropDownArrow className="mui-menu-drop-down-icon" />
-          <div className="mui-menu-control-underline" />
+          <div className="mui-menu-control-underline" style={{'display' : 'none'}} />
         </div>
         <Menu
           ref="menuItems"
@@ -65,7 +75,8 @@ var DropDownMenu = React.createClass({
           menuItems={this.props.menuItems}
           hideable={true}
           visible={this.state.open}
-          onItemClick={this._onMenuItemClick} />
+          onItemClick={this._onMenuItemClick}
+          style={menuStyle}  />
       </div>
     );
   },

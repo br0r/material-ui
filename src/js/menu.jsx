@@ -132,7 +132,7 @@ var Menu = React.createClass({
     });
 
     return (
-      <Paper ref="paperContainer" zDepth={this.props.zDepth} className={classes}>
+      <Paper ref="paperContainer" zDepth={this.props.zDepth} rounded={false} className={classes} style={this.props.style}>
         {this._getChildren()}
       </Paper>
     );

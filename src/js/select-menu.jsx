@@ -11,11 +11,15 @@ var SelectMenu = React.createClass({
   mixins: [Classable, ClickAwayable],
 
   propTypes: {
+      autoWidth : React.PropTypes.bool,
+      showArrow : React.PropTypes.bool,
+      controlStyle : React.PropTypes.object
   },
 
   getDefaultProps: function() {
     return {
-      autoWidth: true
+      autoWidth: true,
+      showArrow : true,
     };
   },
 
@@ -62,17 +66,26 @@ var SelectMenu = React.createClass({
     var paperStyle = _.extend({
         'visibility' : (this.state.open) ? 'visible' : 'hidden',
         'position' : 'absolute',
-        'top' : 57
+        'top' : 57,
+        'whiteSpace' : 'nowrap'
     }, this.props.style);
+
+    if(this.props.orient === 'right') {
+        paperStyle.right = '0px';
+    }
+
+    var arrowDown = (this.props.showArrow) ? <DropDownArrow className="mui-menu-drop-down-icon" /> : null;
+
+    var controlStyle = this.props.controlStyle || {};
 
     return (
       <div className={classes}>
-        <div className="mui-menu-control" onClick={this._onControlClick}>
+        <div className="mui-menu-control" style={controlStyle} onClick={this._onControlClick}>
           <Paper className="mui-menu-control-bg" zDepth={0} rounded={false} />
           <div className="mui-menu-label">
             {this.props.label}
           </div>
-          <DropDownArrow className="mui-menu-drop-down-icon" />
+          {arrowDown}
         </div>
         <Paper ref="menuItems" zDepth={1} rounded={false} className={paperClasses} style={paperStyle}>
             {this.props.children}

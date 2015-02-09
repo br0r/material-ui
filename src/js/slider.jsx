@@ -38,7 +38,6 @@ var Slider = React.createClass({
       doubleSlider : false
     };
   },
-
   getInitialState: function() {
     if(this.props.doubleSlider) {
         var values = this.props.values;

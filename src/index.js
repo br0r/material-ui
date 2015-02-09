@@ -26,6 +26,7 @@ module.exports = {
   RadioButton: require('./js/radio-button.jsx'),
   RadioButtonGroup: require('./js/radio-button-group.jsx'),
   RaisedButton: require('./js/raised-button.jsx'),
+  SelectMenu: require('./js/select-menu.jsx'),
   Slider: require('./js/slider.jsx'),
   Tab: require('./js/tabs/tab.jsx'),
   Tabs: require('./js/tabs/tabs.jsx'),

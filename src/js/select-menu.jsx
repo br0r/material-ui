@@ -36,12 +36,14 @@ var SelectMenu = React.createClass({
 
     this._initialMenuHeight = el.offsetHeight + KeyLine.Desktop.GUTTER_LESS;
 
-    if (this.props.autoWidth) this._setWidth();
+    if (this.props.autoWidth) {this._setWidth()};
+    this._setTop();
 
     this._renderVisibility();
   },
   componentDidUpdate : function() {
-    if (this.props.autoWidth) this._setWidth();
+    if (this.props.autoWidth) {this._setWidth()};
+    this._setTop();
 
     this._renderVisibility();
   },
@@ -79,10 +81,10 @@ var SelectMenu = React.createClass({
     var controlStyle = this.props.controlStyle || {};
 
     return (
-      <div className={classes}>
-        <div className="mui-menu-control" style={controlStyle} onClick={this._onControlClick}>
+      <div className={classes} style={{"height" : (controlStyle.height) ? "auto" : 56}}>
+        <div className="mui-menu-control" ref="menuControl" style={controlStyle} onClick={this._onControlClick}>
           <Paper className="mui-menu-control-bg" zDepth={0} rounded={false} />
-          <div className="mui-menu-label">
+          <div className="mui-menu-label" style={{"padding-left" : 0, "margin" : "auto", "line-height" : "normal"}}>
             {this.props.label}
           </div>
           {arrowDown}
@@ -98,6 +100,12 @@ var SelectMenu = React.createClass({
       menuItemsDom = this.refs.menuItems.getDOMNode();
 
     el.style.width = menuItemsDom.offsetWidth + 'px';
+  },
+  _setTop: function() {
+    var el = this.refs.menuItems.getDOMNode(),
+        controlEl = this.refs.menuControl.getDOMNode();
+
+    el.style.top = controlEl.offsetHeight + 'px';
   },
   _renderVisibility: function() {
     var el;

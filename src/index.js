@@ -12,7 +12,6 @@ module.exports = {
   FloatingActionButton: require('./js/floating-action-button.jsx'),
   FontIcon: require('./js/font-icon.jsx'),
   IconButton: require('./js/icon-button.jsx'),
-  Icon: require('./js/icon.jsx'),
   Input: require('./js/input.jsx'),
   LeftNav: require('./js/left-nav.jsx'),
   MenuItem: require('./js/menu-item.jsx'),
@@ -28,6 +27,12 @@ module.exports = {
   RaisedButton: require('./js/raised-button.jsx'),
   SelectMenu: require('./js/select-menu.jsx'),
   Slider: require('./js/slider.jsx'),
+  SvgIcon: require('./js/svg-icons/svg-icon.jsx'),
+  Icons: {
+    NavigationMenu: require('./js/svg-icons/navigation-menu.jsx'),
+    NavigationChevronLeft: require('./js/svg-icons/navigation-chevron-left.jsx'),
+    NavigationChevronRight: require('./js/svg-icons/navigation-chevron-right.jsx')
+  },
   Tab: require('./js/tabs/tab.jsx'),
   Tabs: require('./js/tabs/tabs.jsx'),
   Toggle: require('./js/toggle.jsx'),

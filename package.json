@@ -3,7 +3,7 @@
   "author": "Call-em-all Engineering Team",
   "version": "0.7.0",
   "description": "Material Design UI components built with React - Implementation for Bilprospekt",
-  "main": "./lib",
+  "main": "./lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prebuild": "rm -rf lib",

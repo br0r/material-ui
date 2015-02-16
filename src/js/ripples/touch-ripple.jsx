@@ -1,7 +1,7 @@
 var React = require('react');
 var Classable = require('../mixins/classable');
-var Dom = require('../utils/dom.js');
-var RippleCircle = require('./circle.jsx');
+var Dom = require('../utils/dom');
+var RippleCircle = require('./circle');
 
 var TouchRipple = React.createClass({
 
@@ -27,13 +27,15 @@ var TouchRipple = React.createClass({
 
     return (
       <div
-        className={classes}
         onMouseUp={this._handleMouseUp}
         onMouseDown={this._handleMouseDown}
         onMouseOut={this._handleMouseOut}
         onTouchStart={this._handleTouchStart}
         onTouchEnd={this._handleTouchEnd}>
-        {this._getRippleElements()}
+        <div className={classes}>
+          {this._getRippleElements()}
+        </div>
+        {this.props.children}
       </div>
     );
   },

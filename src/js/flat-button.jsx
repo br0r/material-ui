@@ -1,6 +1,6 @@
 var React = require('react');
-var Classable = require('./mixins/classable.js');
-var EnhancedButton = require('./enhanced-button.jsx');
+var Classable = require('./mixins/classable');
+var EnhancedButton = require('./enhanced-button');
 
 var FlatButton = React.createClass({
 
@@ -8,7 +8,11 @@ var FlatButton = React.createClass({
 
   propTypes: {
     className: React.PropTypes.string,
-    label: React.PropTypes.string.isRequired,
+    label: function(props, propName, componentName){
+      if (!props.children && !props.label) {
+        return new Error('Warning: Required prop `label` or `children` was not specified in `'+ componentName + '`.')
+      }
+    },
     primary: React.PropTypes.bool,
     secondary: React.PropTypes.bool
   },
@@ -25,11 +29,15 @@ var FlatButton = React.createClass({
       'mui-is-primary': primary,
       'mui-is-secondary': !primary && secondary
     });
+    var children;
+
+    if (label) children = <span className="mui-flat-button-label">{label}</span>;
+    else children = this.props.children;
 
     return (
       <EnhancedButton {...other}
         className={classes}>
-        <span className="mui-flat-button-label">{label}</span>
+        {children}
       </EnhancedButton>
     );
   }

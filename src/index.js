@@ -27,7 +27,7 @@ module.exports = {
   RaisedButton: require('./js/raised-button'),
   Slider: require('./js/slider'),
   SvgIcon: require('./js/svg-icons/svg-icon'),
-  SelectMenu: require('./js/select-menu.jsx'),
+  SelectMenu: require('./js/select-menu'),
   Icons: {
     NavigationMenu: require('./js/svg-icons/navigation-menu'),
     NavigationChevronLeft: require('./js/svg-icons/navigation-chevron-left'),

@@ -27,16 +27,6 @@
   "bugs": {
     "url": "https://github.com/br0r/material-ui/issues"
   },
-  "browserify": {
-    "transform": [
-      [
-        "reactify",
-        {
-          "es6": true
-        }
-      ]
-    ]
-  },
   "dependencies": {
     "react-classset": "0.0.2",
     "react-draggable2": "^0.4.2"

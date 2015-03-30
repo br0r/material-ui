@@ -32,16 +32,16 @@ module.exports = {
   getFullMonth: function(d) {
     var month = d.getMonth();
     switch (month) {
-      case 0: return 'January';
-      case 1: return 'February';
-      case 2: return 'March';
+      case 0: return 'Januari';
+      case 1: return 'Februari';
+      case 2: return 'Mars';
       case 3: return 'April';
-      case 4: return 'May';
-      case 5: return 'June';
-      case 6: return 'July';
-      case 7: return 'August';
+      case 4: return 'Maj';
+      case 5: return 'Juni';
+      case 6: return 'Juli';
+      case 7: return 'Augusti';
       case 8: return 'September';
-      case 9: return 'October';
+      case 9: return 'Oktober';
       case 10: return 'November';
       case 11: return 'December';
     }
@@ -54,12 +54,12 @@ module.exports = {
       case 1: return 'Feb';
       case 2: return 'Mar';
       case 3: return 'Apr';
-      case 4: return 'May';
+      case 4: return 'Maj';
       case 5: return 'Jun';
       case 6: return 'Jul';
       case 7: return 'Aug';
       case 8: return 'Sep';
-      case 9: return 'Oct';
+      case 9: return 'Okt';
       case 10: return 'Nov';
       case 11: return 'Dec';
     }
@@ -68,13 +68,13 @@ module.exports = {
   getDayOfWeek: function(d) {
     var dow = d.getDay();
     switch (dow) {
-      case 0: return 'Sunday';
-      case 1: return 'Monday';
-      case 2: return 'Tuesday';
-      case 3: return 'Wednesday';
-      case 4: return 'Thursday';
-      case 5: return 'Friday';
-      case 6: return 'Saturday';
+      case 0: return 'Söndag';
+      case 1: return 'Måndag';
+      case 2: return 'Tisdag';
+      case 3: return 'Onsdag';
+      case 4: return 'Torsdag';
+      case 5: return 'Fredag';
+      case 6: return 'Lördag';
     }
   },
 

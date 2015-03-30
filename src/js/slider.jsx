@@ -4,6 +4,9 @@ var React = require('react'),
     Classable = require('./mixins/classable'),
     Draggable = require('react-draggable2');
 
+
+//FIXME
+
 var Slider = React.createClass({
 
   propTypes: {
@@ -46,7 +49,7 @@ var Slider = React.createClass({
         }
         var percents = values.map(function(num) {
             var percent = num / this.props.max;
-            if(isNaN(percent)) {
+            if(isNaN(percent)){
                 percent = 0;
             }
             return percent;
@@ -71,6 +74,8 @@ var Slider = React.createClass({
   componentWillReceiveProps: function(nextProps) {
     if (nextProps.value != null) {
       this.setValue(nextProps.value);
+    } else if(nextProps.doubleSlider === true && nextProps.values != null) {
+        this.setValues(nextProps.values);
     }
   },
   //FIXME - Make so disabled works
@@ -167,7 +172,21 @@ var Slider = React.createClass({
   getValue: function() {
     return this.state.value;
   },
+  setValues : function(values) {
+    var percents = values.map(function(num) {
+        var percent = num / this.props.max;
+        if(isNaN(percent)) {
+            percent = 0;
+        }
+        return percent;
+    }.bind(this));
 
+    this.setState({
+        values : values,
+        percents : percents
+    });
+
+  },
   setValue: function(i) {
     // calculate percentage
     var percent = (i - this.props.min) / (this.props.max - this.props.min);
@@ -178,7 +197,27 @@ var Slider = React.createClass({
       percent: percent
     });
   },
-
+  _constrain : function (snap, max) {
+      var constrainOffset = function (offset, prev) {
+        var width = this.getDOMNode().offsetWidth;
+        console.log("OK LETS CONSTRAIN", offset, prev, width);
+        var percent = offset / width;
+        console.log("PERCENT", percent, max);
+        var delta = percent - (parseFloat(prev) / 100);
+        console.log("DELTA IS", delta);
+        if (Math.abs(delta) < snap) {
+          return prev + (snap * Math.sign(delta) * width / 100);
+        } else {
+            return offset;
+        }
+      }.bind(this)
+      return function (pos) {
+        return {
+          top: constrainOffset(pos.top, pos.prevTop),
+          left: constrainOffset(pos.left, pos.prevLeft)
+        };
+      };
+  },
   getPercent: function() {
     if(this.props.doubleSlider) {
         return this.state.percents;
@@ -236,6 +275,7 @@ var Slider = React.createClass({
   _dragX: function(e, pos, index) {
     var max = this.refs.track.getDOMNode().clientWidth;
     if (pos < 0) pos = 0; else if (pos > max) pos = max;
+    console.log("POS IS", pos);
     this._updateWithChangeEvent(e, pos / max, index);
   },
 

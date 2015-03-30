@@ -71,10 +71,10 @@ var Calendar = React.createClass({
             <li className="mui-date-picker-calendar-week-title-day">S</li>
             <li className="mui-date-picker-calendar-week-title-day">M</li>
             <li className="mui-date-picker-calendar-week-title-day">T</li>
-            <li className="mui-date-picker-calendar-week-title-day">W</li>
+            <li className="mui-date-picker-calendar-week-title-day">O</li>
             <li className="mui-date-picker-calendar-week-title-day">T</li>
             <li className="mui-date-picker-calendar-week-title-day">F</li>
-            <li className="mui-date-picker-calendar-week-title-day">S</li>
+            <li className="mui-date-picker-calendar-week-title-day">L</li>
           </ul>
 
           <SlideInTransitionGroup

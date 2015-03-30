@@ -35,7 +35,7 @@ var DatePickerDialog = React.createClass({
     var actions = [
       <FlatButton
         key={0}
-        label="Cancel"
+        label="Avbryt"
         secondary={true}
         onTouchTap={this._handleCancelTouchTap} />,
       <FlatButton

@@ -34,8 +34,16 @@ var Checkbox = React.createClass({
       className: classes,
       iconClassName: "mui-checkbox-icon",
       onSwitch: this._handleCheck,
+      disableTouchRipple : true,
+      disableFocusRipple : true,
       labelPosition: (this.props.labelPosition) ? this.props.labelPosition : "right"
     };
+
+    // return (
+    //     <div className="bilp-ui">
+    //       <input className='bilp-checkbox' type='checkbox' onCheck={this._handleCheck} />
+    //     </div>
+    // );
 
     return (
       <EnhancedSwitch 

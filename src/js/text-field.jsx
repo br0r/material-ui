@@ -3,6 +3,8 @@ var Classable = require('./mixins/classable');
 var DomIdable = require('./mixins/dom-idable');
 var EnhancedTextarea = require('./enhanced-textarea');
 
+var $ = require('jquery');
+
 var TextField = React.createClass({
 
   mixins: [Classable, DomIdable],
@@ -178,6 +180,7 @@ var TextField = React.createClass({
 
   _handleInputBlur: function(e) {
     this.setState({isFocused: false});
+    $(this.getDOMNode()).find('.mui-text-field-hint').fadeIn(0);
     if (this.props.onBlur) this.props.onBlur(e);
   },
 
@@ -188,6 +191,7 @@ var TextField = React.createClass({
 
   _handleInputFocus: function(e) {
     this.setState({isFocused: true});
+    $(this.getDOMNode()).find('.mui-text-field-hint').fadeOut(100);
     if (this.props.onFocus) this.props.onFocus(e);
   },
 

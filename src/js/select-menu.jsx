@@ -84,7 +84,7 @@ var SelectMenu = React.createClass({
       <div className={classes} style={{"height" : (controlStyle.height) ? "auto" : 56}}>
         <div className="mui-menu-control" ref="menuControl" style={controlStyle} onClick={this._onControlClick}>
           <Paper className="mui-menu-control-bg" zDepth={0} rounded={false} />
-          <div className="mui-menu-label" style={{"padding-left" : 0, "margin" : "auto", "line-height" : "normal"}}>
+          <div className="mui-menu-label" style={{"paddingLeft" : 0, "margin" : "auto", "lineHeight" : "normal"}}>
             {this.props.label}
           </div>
           {arrowDown}

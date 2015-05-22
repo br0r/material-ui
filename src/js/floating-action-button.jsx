@@ -21,7 +21,7 @@ var RaisedButton = React.createClass({
   },
 
   getInitialState: function() {
-    var zDepth = this.props.disabled ? 0 : 2;
+    var zDepth = this.props.disabled ? 0 : 0;
     return {
       zDepth: zDepth,
       initialZDepth: zDepth
@@ -44,7 +44,7 @@ var RaisedButton = React.createClass({
       mini,
       secondary,
       ...other } = this.props;
-    var classes = this.getClasses('mui-floating-action-button', {
+    var classes = this.getClasses('mui-floating-action-button custom-fab-shadow', {
       'mui-is-mini': mini,
       'mui-is-secondary': secondary
     });

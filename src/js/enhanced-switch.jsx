@@ -133,18 +133,21 @@ var EnhancedSwitch = React.createClass({
         className="mui-enhanced-switch-input"/>
     );
 
-    var touchRipple = (
-      <TouchRipple
-        ref="touchRipple"
-        key="touchRipple"
-        centerRipple={true} />
-    );
+    // var touchRipple = (
+    //   <TouchRipple
+    //     ref="touchRipple"
+    //     key="touchRipple"
+    //     centerRipple={true} />
+    // );
 
-    var focusRipple = (
-      <FocusRipple
-        key="focusRipple"
-        show={this.state.isKeyboardFocused} />
-    );
+    // var focusRipple = (
+    //   <FocusRipple
+    //     key="focusRipple"
+    //     show={this.state.isKeyboardFocused} />
+    // );
+
+    var touchRipple = null,
+        focusRipple = null;
 
     var ripples = [
       this.props.disabled || disableTouchRipple ? null : touchRipple,

@@ -3,12 +3,11 @@
   "author": "Call-em-all Engineering Team",
   "version": "0.7.0",
   "description": "Material Design UI components built with React - Implementation for Bilprospekt",
-  "main": "./lib/index.js",
+  "main": "./src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prebuild": "rm -rf lib && npm install",
+    "prebuild": "rm -rf lib",
     "build": "./node_modules/.bin/babel --optional reactCompat --stage 1 ./src --out-dir ./lib",
-    "prepublish": "npm run build"
   },
   "keywords": [
     "react",
@@ -26,6 +25,7 @@
     "url": "https://github.com/br0r/material-ui/issues"
   },
   "dependencies": {
+    "babel": "^5.4.7",
     "gulp": "^3.8.11",
     "react-classset": "0.0.2",
     "react-draggable2": "^0.4.2"
@@ -36,7 +36,6 @@
   },
   "devDependencies": {
     "autoprefixer-core": "^5.1.8",
-    "babel": "^5.4.7",
     "browserify": "^7.0.3",
     "gulp-postcss": "^5.1.0",
     "gulp-sourcemaps": "^1.5.1",

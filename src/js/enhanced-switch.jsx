@@ -252,23 +252,31 @@ var EnhancedSwitch = React.createClass({
 
   _handleMouseDown: function(e) {
     //only listen to left clicks
-    if (e.button === 0) this.refs.touchRipple.start(e);
+    if (e.button === 0 && this.refs.touchRipple) this.refs.touchRipple.start(e);
   },
 
   _handleMouseUp: function(e) {
-    this.refs.touchRipple.end();
+      if(this.refs.touchRipple) {
+          this.refs.touchRipple.end();
+      }
   },
 
   _handleMouseOut: function(e) {
-    this.refs.touchRipple.end();
+      if(this.refs.touchRipple) {
+          this.refs.touchRipple.end();
+      }
   },
 
   _handleTouchStart: function(e) {
-    this.refs.touchRipple.start(e);
+      if(this.refs.touchRipple) {
+        this.refs.touchRipple.start(e);
+      }
   },
 
   _handleTouchEnd: function(e) {
-    this.refs.touchRipple.end();
+      if(this.refs.touchRipple) {
+          this.refs.touchRipple.end();
+      }
   },
 
   _handleBlur: function(e) {

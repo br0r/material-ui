@@ -7,9 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prebuild": "rm -rf lib",
-    "build:js": "./node_modules/.bin/jsx --harmony ./src ./lib",
-    "build:jsx": "./node_modules/.bin/jsx --harmony -x jsx ./src ./lib",
-    "build": "npm run build:js && npm run build:jsx",
+    "build": "./node_modules/.bin/babel --optional reactCompat --stage 1 ./src --out-dir ./lib",
     "prepublish": "npm run build"
   },
   "keywords": [
@@ -38,9 +36,11 @@
   },
   "devDependencies": {
     "autoprefixer-core": "^5.1.8",
+    "babel": "^5.4.7",
     "browserify": "^7.0.3",
     "gulp-postcss": "^5.1.0",
     "gulp-sourcemaps": "^1.5.1",
+    "jsxhint": "^0.15.0",
     "react-router": "^0.11.6",
     "react-tools": "^0.12.2",
     "reactify": "^0.17.1"

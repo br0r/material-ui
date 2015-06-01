@@ -116,6 +116,7 @@ var DialogWindow = React.createClass({
   _getActionsContainer: function(actions) {
     var actionContainer;
     var actionObjects = [];
+    var currentAction;
 
     if (actions.length) {
       for (var i = 0; i < actions.length; i++) {

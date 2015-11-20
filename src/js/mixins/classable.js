@@ -31,7 +31,7 @@ module.exports = {
     var classObj = {};
 
     if (classString) {
-      classString.split(' ').forEach(function(className) {
+      (classString || '').split(' ').forEach(function(className) {
         if (className) classObj[className] = true;
       });
     }

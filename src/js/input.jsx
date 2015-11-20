@@ -129,7 +129,7 @@ var Input = React.createClass({
 
   _onLineBreak: function(e) {
     var value = e.target.value;
-    var lines = value.split('\n').length;
+    var lines = (value || '').split('\n').length;
 
     if (lines > this.state.rows) {
       if (this.state.rows !== 20) {
